@@ -1,0 +1,13 @@
+PHP Warning:  PHP Startup: Unable to load dynamic library '../php-5.6.32-Win32-VC11-x64/ext\\php_curl.dll' - \xef\xbf\xbd\xd2\xb2\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xd6\xb8\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc4\xa3\xef\xbf\xbd\xe9\xa1\xa3\r\n in Unknown on line 0
+[Sat Nov 04 21:12:27.057612 2017] [mpm_winnt:notice] [pid 2760:tid 596] AH00455: Apache/2.4.29 (Win64) PHP/5.6.32 configured -- resuming normal operations
+[Sat Nov 04 21:12:27.057612 2017] [mpm_winnt:notice] [pid 2760:tid 596] AH00456: Apache Lounge VC15 Server built: Oct 20 2017 12:12:11
+[Sat Nov 04 21:12:27.057612 2017] [core:notice] [pid 2760:tid 596] AH00094: Command line: 'C:\\Users\\Andy\\AndyPHP\\Apache24\\bin\\httpd.exe -d C:/Users/Andy/AndyPHP/Apache24'
+[Sat Nov 04 21:12:27.059613 2017] [mpm_winnt:notice] [pid 2760:tid 596] AH00418: Parent: Created child process 11708
+PHP Warning:  PHP Startup: Unable to load dynamic library '../php-5.6.32-Win32-VC11-x64/ext\\php_curl.dll' - \xef\xbf\xbd\xd2\xb2\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xd6\xb8\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc4\xa3\xef\xbf\xbd\xe9\xa1\xa3\r\n in Unknown on line 0
+[Sat Nov 04 21:12:27.478891 2017] [mpm_winnt:notice] [pid 11708:tid 552] AH00354: Child: Starting 64 worker threads.
+[Sat Nov 04 21:12:36.289396 2017] [authz_core:error] [pid 11708:tid 1056] [client 127.0.0.1:52206] AH01630: client denied by server configuration: C:/Users/Andy/AndyPHP/Sites/default/public_html/.htaccess
+[Sat Nov 04 21:12:38.644557 2017] [authz_core:error] [pid 11708:tid 1056] [client 127.0.0.1:52206] AH01630: client denied by server configuration: C:/Users/Andy/AndyPHP/Sites/default/public_html/.htaccess
+[Sat Nov 04 21:15:04.588704 2017] [:error] [pid 11708:tid 1052] [client 127.0.0.1:61587] PHP Notice:  Array to string conversion in C:\\Users\\Andy\\AndyPHP\\Sites\\default\\public_html\\vhost.php on line 63, referer: http://127.0.0.1/vhost.php?act=del&domain=1.lvh.me
+[Sat Nov 04 21:17:43.441055 2017] [mpm_winnt:notice] [pid 2760:tid 596] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Sat Nov 04 21:17:45.460356 2017] [mpm_winnt:notice] [pid 11708:tid 552] AH00364: Child: All worker threads have exited.
+[Sat Nov 04 21:17:45.482370 2017] [mpm_winnt:notice] [pid 2760:tid 596] AH00430: Parent: Child process 11708 exited successfully.

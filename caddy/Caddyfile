@@ -1,0 +1,9 @@
+*:80 {
+    gzip
+    proxy / http://192.168.168.3:80 {
+        transparent
+    }
+    header / {
+        -Server
+    }
+}
