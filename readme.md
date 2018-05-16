@@ -87,35 +87,25 @@ DocumentRoot ../web/default/public_html
 PHP：
 1. 到 http://windows.php.net/download/ 下载 VC11 x64 Thread Safe 版，解压放到目录里，命名为 php
 2. php.ini-development 复制到 php.ini
-3. 修改文件 php.ini，下面直接覆盖
+3. 修改文件 php.ini，把下面配置粘贴到最后
 extension=php_bz2.dll
 extension=php_curl.dll
 extension=php_fileinfo.dll
 extension=php_gd2.dll
 extension=php_gettext.dll
-;extension=php_gmp.dll
-;extension=php_intl.dll
-;extension=php_imap.dll
-;extension=php_interbase.dll
-;extension=php_ldap.dll
 extension=php_mbstring.dll
-extension=php_exif.dll      ; Must be after mbstring as it depends on it
+extension=php_exif.dll
 extension=php_mysql.dll
 extension=php_mysqli.dll
-;extension=php_oci8_12c.dll  ; Use with Oracle Database 12c Instant Client
 extension=php_openssl.dll
-;extension=php_pdo_firebird.dll
 extension=php_pdo_mysql.dll
-;extension=php_pdo_oci.dll
-;extension=php_pdo_odbc.dll
-;extension=php_pdo_pgsql.dll
 extension=php_pdo_sqlite.dll
-;extension=php_pgsql.dll
-;extension=php_shmop.dll
 extension_dir = "../php/ext"
 date.timezone = Asia/Shanghai
 upload_tmp_dir = "../temp"
 always_populate_raw_post_data = -1
+post_max_size = 20M
+upload_max_filesize = 20M
 
 4. libssh2.dll 复制到 Apache24\bin 目录。
 
