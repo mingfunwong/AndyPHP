@@ -10,11 +10,19 @@ fltmc >nul 2>&1 || (
 	exit
 )
 
-cd caddy
-caddy -service stop
-caddy -service uninstall
-caddy -service install -conf="Caddyfile"
-caddy -service start
+call :stop_caddy
+call :start_caddy
 
 echo [Success] Installation completed.
 pause
+goto :eof
+
+:start_caddy
+caddy\caddy -service install -conf="%cd%\caddy\Caddyfile"
+caddy\caddy -service start
+goto :eof
+
+:stop_caddy
+caddy\caddy -service stop
+caddy\caddy -service uninstall
+goto :eof

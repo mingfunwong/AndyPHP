@@ -10,6 +10,7 @@ fltmc >nul 2>&1 || (
 	exit
 )
 
+call :stop_caddy
 call :stop_apache
 call :stop_mysql
 echo [Success] Uninstall completed.
@@ -35,4 +36,14 @@ goto :eof
 :stop_mysql
 (sc query .mysql | find ".mysql">nul && net stop .mysql)
 (sc query .mysql | find ".mysql">nul && sc delete .mysql)
+goto :eof
+
+:start_caddy
+caddy\caddy -service install -conf="%cd%\caddy\Caddyfile"
+caddy\caddy -service start
+goto :eof
+
+:stop_caddy
+caddy\caddy -service stop
+caddy\caddy -service uninstall
 goto :eof
