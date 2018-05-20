@@ -268,7 +268,7 @@ function op_vhost_add() {
     $dir2 = $dir1 . '/public_html';
     $file = "{$domain}.conf";
     $fullpath = VHOST_DIR . $file;
-    $content = '<VirtualHost *:80>\nDocumentRoot ../web/'.$dir.'/public_html\nServerName '.$domain.'\nServerAlias '.$alias.'\nphp_admin_value open_basedir '.WWW_DIR.$dir.';C:/Windows/TEMP;'.ANDYPHP_DIR.'temp\n<IfModule mod_deflate.c>\nDeflateCompressionLevel 7\nAddOutputFilterByType DEFLATE text/html text/plain text/xml application/x-httpd-php\nAddOutputFilter DEFLATE css js html htm gif jpg png bmp php\n</IfModule>\n</VirtualHost>\n<Directory ../web/'.$dir.'>\n    Options FollowSymLinks\n  DirectoryIndex index.php index.html\n    AllowOverride All\n    Order allow,deny\n    Allow from all\n</Directory>\n';
+    $content = '<VirtualHost *:801>\nDocumentRoot ../web/'.$dir.'/public_html\nServerName '.$domain.'\nServerAlias '.$alias.'\nphp_admin_value open_basedir '.WWW_DIR.$dir.';C:/Windows/TEMP;'.ANDYPHP_DIR.'temp\n<IfModule mod_deflate.c>\nDeflateCompressionLevel 7\nAddOutputFilterByType DEFLATE text/html text/plain text/xml application/x-httpd-php\nAddOutputFilter DEFLATE css js html htm gif jpg png bmp php\n</IfModule>\n</VirtualHost>\n<Directory ../web/'.$dir.'>\n    Options FollowSymLinks\n  DirectoryIndex index.php index.html\n    AllowOverride All\n    Order allow,deny\n    Allow from all\n</Directory>\n';
     $content = str_replace('\n', "\n", $content);
     $old_content = (file_exists($fullpath)) ? file_get_contents($fullpath) : "";
     if ($old_content != $content) {

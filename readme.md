@@ -42,6 +42,7 @@ Apache：
 1. 到 https://www.apachelounge.com/download/ 下载 Apache 2.x.xx Win64 版，解压放到目录里，命名为 apache
 2. 编辑 apahce\conf\httpd.conf
 2.1.1 ServerRoot "c:/Apache24" 前面加入 # 号
+2.1.2 Listen 80 前面加入 # 号
 2.2.5 修改 DocumentRoot "c:/Apache24/htdocs" 前面加入 # 号
 
 2.3. 删除
@@ -50,6 +51,7 @@ Apache：
     Require all denied
 </Directory>
 2.4. 最后在底部加入
+Listen 801
 LogFormat "%V %U %b" count
 CustomLog "|bin/rotatelogs.exe logs/access_%Y%m%d.log 86400 480" count
 LoadModule ratelimit_module modules/mod_ratelimit.so
@@ -71,7 +73,7 @@ Include conf/vhost/*.conf
 </IfModule>
 
 2.5 在 apache\conf\ 新建目录 vhost ，新建文件 00000.default.conf 写入以下内容
-<VirtualHost *:80>
+<VirtualHost *:801>
 DocumentRoot ../web/default/public_html
 </VirtualHost>
 <Directory ../web/default>
