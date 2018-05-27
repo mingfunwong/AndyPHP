@@ -1,5 +1,8 @@
 *:80 {
     gzip
+	tls {
+		max_certs 10000
+	}
     proxy / http://127.0.0.1:801 {
         transparent
     }
