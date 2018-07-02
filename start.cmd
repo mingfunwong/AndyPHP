@@ -16,7 +16,7 @@ call :stop_mysql
 call :start_caddy
 call :start_apache
 call :start_mysql
-explorer http://127.0.0.1/
+explorer http://localhost/
 echo [Success] Installation completed.
 pause
 goto :eof
@@ -46,7 +46,7 @@ goto :eof
 goto :eof
 
 :start_caddy
-caddy\caddy -service install -conf="%cd%\caddy\Caddyfile"
+caddy\caddy -service install -conf %cd%\caddy\Caddyfile -agree
 caddy\caddy -service start
 goto :eof
 

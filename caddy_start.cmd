@@ -18,7 +18,7 @@ pause
 goto :eof
 
 :start_caddy
-caddy\caddy -service install -conf="%cd%\caddy\Caddyfile"
+caddy\caddy -service install -conf %cd%\caddy\Caddyfile -agree
 caddy\caddy -service start
 goto :eof
 
