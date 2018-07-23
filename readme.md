@@ -115,6 +115,12 @@ MariaDB：
 1. 到 https://downloads.mariadb.org/ 下载 MariaDB 10.x Series 版，解压放到目录里，命名为 mysql
 2. 复制 my-medium.ini 为 my.ini
 3. 删除 mysql\mysql-test 、 mysql\sql-bench 目录
+4. 打开 my.ini 在 [mysqld] 后面加入：
+innodb_buffer_pool_size = 256M
+innodb_log_file_size = 256M
+innodb_thread_concurrency = 16
+innodb_flush_log_at_trx_commit = 2
+innodb_flush_method = normal
 
 FileZilla Server：
 1. 到 https://filezilla-project.org/download.php?type=server 下载安装到目录，命名为 ftp
