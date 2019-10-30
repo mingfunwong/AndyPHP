@@ -1,5 +1,107 @@
 CHANGES
 
+1.0.3 (August 14, 2019)
+- Hotfix for address parsing regression
+
+
+1.0.2 (August 13, 2019)
+- Built with Go 1.12.8 to patch HTTP/2 vulnerabilities
+- Static file server now serves pre-compressed Zstd files
+- websocket: Improvements for custom message types
+
+
+1.0.1 (July 2, 2019)
+- Move repo and module paths to github.com/caddyserver/caddy
+- New third-party plugin: pubsub
+- gzip: Automatically compress .wasm files
+- tls: Clean up locks from ACME operations on soft exit
+- tls: Deprecate 'max_certs' (use 'ask' instead)
+- tls: Improvements to on-demand TLS
+- Several other bug fixes
+
+
+1.0.0 (April 24, 2019)
+- Minor internal/linting improvements
+- EULA no longer applies
+- Backwards compatibility goal (see project repo)
+
+
+1.0.0-beta2 (April 20, 2019)
+- Continue migration to Go modules
+- Eliminate need for special build script
+- Internal changes for better compatibility
+
+
+1.0.0-beta1 (April 9, 2019)
+- Major internal changes (Go modules & remove vendor)
+- Rename -env flag to -envfile
+- New -env flag to print the environment
+- New 'dyndns' directive
+- proxy: Manipulate headers using regular expressions
+- A few bug fixes
+
+
+0.11.5 (March 4, 2019)
+- TLS 1.3
+- Built with Go 1.12
+- More organized output at startup
+- internal: Paths are now hidden from other middlewares
+- staticfiles: Allow HEAD method
+- tls: TLS 1.3 default max version (1.2 still default min)
+- tls: Better handling of empty ACME email addresses
+- tls: Removed CBC ciphers from defaults
+- Other minor improvements and bug fixes
+
+
+0.11.4 (February 15, 2019)
+- New -json-to-caddyfile and -caddyfile-to-json flags
+- Fix leaking logging goroutine on SIGUSR1
+- basicauth: Error is logged when authentication fails
+- proxy: Fix bug by re-adding pre-existing trailing slashes
+- tls: Fix bug related to certificate storage path
+
+
+0.11.3 (February 5, 2019)
+- New {server_port} placeholder
+- New third-party plugin: extauth
+- New flags -log-roll-mb and -log-roll-compress
+- basicauth: Bypass for OPTIONS method
+- errors/log: Ability to disable log rolling
+- proxy: New subdirective 'ca_certificates'
+- staticfiles: Require GET method to serve static files
+- tls: Fixes to self-signed certs, IP certs, email prompts, & more
+- SOLVED REGRESSIONS: #2356, #2414
+- A number of other important fixes and improvements
+
+
+0.11.2 (January 16, 2019)
+- Extracted automagic TLS code into CertMagic library
+- Add support for new clustering plugins
+- New placeholder: '{when_iso_local}'
+- New third-party plugins: s3browser, filebrowser
+- Removed third-party plugins: jekyll, hugo
+- bind: Support multiple interface values
+- import: Can now be used within directive blocks
+- proxy: Status 499 when clients close connection early
+- templates: No longer emit ETag and Last-Modified headers
+- tls: Support for the ACME TLS-ALPN-01 challenge
+- KNOWN/UNRESOLVED REGRESSIONS: #2356, #2414
+- Several bug fixes and minor improvements
+
+
+0.11.1 (November 12, 2018)
+- New -env-file flag to load environment from file
+- New event type 'instancerestart'
+- fastcgi: Strip PATH_INFO from SCRIPT_FILENAME
+- fastcgi: Add REQUEST_SCHEME to environment
+- gzip: Compress .m3u and .m3u8 files by default
+- telemetry: Honor CADDY_UUID_FILE env variable
+- templates: New .TLSVersion action
+- tls: Remove remaining RSA_CBC cipher suites from defaults
+- tls: Raise alert if no certificate matches exactly
+- Numerous other bug fixes and improvements
+
+
 0.11 (May 10, 2018)
 - Built with Go 1.10.2
 - Integrated optional telemetry client

@@ -1,4 +1,4 @@
-CADDY 0.11
+CADDY 1.0.3
 
 Website
 	https://caddyserver.com
@@ -10,7 +10,7 @@ Twitter
 	@caddyserver
 
 Source Code
-	https://github.com/mholt/caddy
+	https://github.com/caddyserver/caddy
 	https://github.com/caddyserver
 
 
@@ -27,14 +27,10 @@ and we'll review it! Your contributions will reach millions
 of people who connect to sites served by Caddy.
 
 Extend Caddy by developing a plugin for it! Instructions on
-the project wiki: https://github.com/mholt/caddy/wiki
+the project wiki: https://github.com/caddyserver/caddy/wiki
 
 And thanks - you're awesome!
 
-If you think Caddy is awesome too, consider sponsoring it:
-https://caddyserver.com/sponsor - and help keep Caddy free
-for personal use.
-
 
 ---
-(c) 2015-2018 Light Code Labs, LLC
+(c) 2015-2019 Light Code Labs, LLC

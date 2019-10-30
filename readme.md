@@ -1,5 +1,5 @@
 # AndyPHP - PHP 运行环境一键安装包
-能够在线开设虚拟主机、FTP、MySQL。适用于 x64 位系统，不能运行在 Windows XP 和 2003。 支持: Windows 7 SP1, Vista SP2, 8 / 8.1, Windows 10, Server 2008 SP2 / R2 SP1, Server 2012 / R2, Server 2016.
+能够在线开设虚拟主机、FTP、MySQL。适用于 x64 位系统，支持: Windows 7 SP1, Vista SP2, 8 / 8.1, Windows 10, Server 2008 SP2 / R2 SP1, Server 2012 / R2, Server 2016。
 
 集成以下环境：
 
@@ -13,9 +13,7 @@ FileZilla Server 0.9.60
 
 Adminer 4.6.2
 
-Caddy v0.10.12_windows_amd64_custom_personal with hook.service plugin
-
-Syncthing windows-amd64-v0.14.46
+Caddy v1.0.3_windows_amd64_custom_personal with hook.service plugin
 
 ## 下载
 https://github.com/mingfunwong/AndyPHP/archive/master.zip
@@ -34,7 +32,7 @@ https://github.com/mingfunwong/AndyPHP/archive/master.zip
 运行 ftp_start 启动 FTP 服务。
 
 ## 修改虚拟主机
-访问 http://127.0.0.1/vhost.php 可在线编辑。
+访问 http://localhost/vhost.php 可在线编辑。
 
 ## 一键安装包制作方法备忘录
 ```
@@ -130,8 +128,5 @@ Adminer：
 
 Caddy：
 1. 到 https://caddyserver.com/download 下载，勾选 hook.service 插件
-
-Syncthing：
-1. 到 https://github.com/syncthing/syncthing/releases/latest 下载 syncthing-windows-amd64-v0.xx.xx.zip
 
 ```

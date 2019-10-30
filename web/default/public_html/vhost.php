@@ -48,19 +48,19 @@ ajax();
         <div class="form-group">
           <label >
             名字
-            <input type="text" class="form-control" value="1.lvh.me" name="vhost_domain">
+            <input type="text" class="form-control" value="example" name="vhost_domain">
           </label>
         </div>
         <div class="form-group">
           <label >
             绑定域名
-            <input type="text" class="form-control" value="" name="vhost_alias" style="width: 410px">
+            <input type="text" class="form-control" value="example.lvh.me" name="vhost_alias" style="width: 410px">
           </label>
         </div>
         <div class="form-group">
           <label>
             目录
-            <input type="text" class="form-control" value="1.lvh.me" name="vhost_dir">
+            <input type="text" class="form-control" value="example" name="vhost_dir">
           </label>
         </div>
 
@@ -278,7 +278,12 @@ function op_vhost_add() {
       // $index_file = "{$dir2}/index.html";
       // !file_exists($index_file) && file_put_contents($index_file, "<meta charset='utf-8'>虚拟主机创建成功！域名：{$domain}");
     }
-    return "<div class='alert alert-success'>虚拟主机增加成功，重启主机后生效，点击 <a href='javascript:ajax_restart(\"虚拟主机\");' >重启虚拟主机</a>。点击访问 <a href='http://{$domain}/' target='_blank'>http://{$domain}/</a></div>";
+    
+    $alias_desc = "";
+    foreach(explode(" ", $alias) as $value) {
+      $alias_desc .= "<a href='http://{$value}/' target='_blank'>http://{$value}/</a></div>";
+    }
+    return "<div class='alert alert-success'>虚拟主机增加成功，重启主机后生效，点击 <a href='javascript:ajax_restart(\"虚拟主机\");' >重启虚拟主机</a>。点击访问 " . $alias_desc;
   }
 }
 
