@@ -1,6 +1,8 @@
 # AndyPHP - PHP 运行环境一键安装包
 能够在线开设虚拟主机、FTP、MySQL。适用于 x64 位系统，支持: Windows 7 SP1, Vista SP2, 8 / 8.1, Windows 10, Server 2008 SP2 / R2 SP1, Server 2012 / R2, Server 2016。
 
+![AndyPHP](./tool/image.png)
+
 集成以下环境：
 
 Apache 2.4.29 Win64
