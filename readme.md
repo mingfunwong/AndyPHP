@@ -29,7 +29,7 @@ https://github.com/mingfunwong/AndyPHP/archive/master.zip
 ## 使用方法
 
 编辑 `apahce\conf\httpd.conf`
-修改 Define SRVROOT "c:/Apache24" 改为当前目录，如 D:/AndyPHP/apache
+修改 Define SRVROOT "D:/AndyPHP/apache" 改为当前目录，如 E:/AndyPHP/apache
 
 运行 start 即可启动 Apache 和 MySQL 服务。
 
