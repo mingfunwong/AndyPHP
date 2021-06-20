@@ -2,7 +2,7 @@
 
 能够在线开设虚拟主机、FTP、MySQL。适用于 x64 位系统，支持系统： Windows 10。
 
-![AndyPHP](./tool/image.png)
+![AndyPHP](./image.png)
 
 集成以下环境：
 
@@ -24,11 +24,7 @@ https://github.com/mingfunwong/AndyPHP/archive/master.zip
 
 ## 提示
 
-1. 启动 Apache 需要系统安装有 VC15 环境，可到 tool/DirectX Repair V3.5/DirectX_Repair_win8_win10.exe 一键安装。
-
-2. MySQL 账号： root 密码：空 ，建议访问 http://127.0.0.1/reset_mysql.php 重设密码。
-
-3. 虚拟主机编辑 账号：admin 密码：admin
+- MySQL 账号： root 密码：空 ，建议访问 http://127.0.0.1/reset_mysql.php 重设密码。
 
 ## 使用方法
 
@@ -41,7 +37,7 @@ https://github.com/mingfunwong/AndyPHP/archive/master.zip
 
 ## 修改虚拟主机
 
-访问 http://localhost/vhost.php 可在线编辑。
+访问 http://localhost/vhost.php 可在线编辑。账号：admin 密码：admin
 
 ## Author
 
