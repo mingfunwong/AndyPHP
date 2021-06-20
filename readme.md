@@ -14,7 +14,7 @@ MariaDB 10.2 Series
 
 FileZilla Server 0.9.60
 
-Adminer 4.6.2
+Adminer 4.8.1
 
 Caddy v1.0.3_windows_amd64_custom_personal with hook.service plugin
 
