@@ -32,9 +32,9 @@
 --------------------------------------------------------------------------------
 
 
- OpenSSL 1.1.0f 25 May 2017
+ OpenSSL 1.1.1k 25 Mar 2021
 
- Copyright (c) 1998-2016 The OpenSSL Project
+ Copyright (c) 1998-2021 The OpenSSL Project
  Copyright (c) 1995-1998 Eric A. Young, Tim J. Hudson
  All rights reserved.
 
@@ -95,14 +95,13 @@
     - Download the latest version from the repository
       to see if the problem has already been addressed
     - Configure with no-asm
-    - Remove compiler optimisation flags
+    - Remove compiler optimization flags
 
  If you wish to report a bug then please include the following information
  and create an issue on GitHub:
 
     - OpenSSL version: output of 'openssl version -a'
-    - Any "Configure" options that you selected during compilation of the
-      library if applicable (see INSTALL)
+    - Configuration data: output of 'perl configdata.pm --dump'
     - OS Name, Version, Hardware platform
     - Compiler Details (name, version)
     - Application Details (name, version)

@@ -1,11 +1,12 @@
 ## 一键安装包制作方法备忘录
+
 ```
 Apache：
 1. 到 https://www.apachelounge.com/download/ 下载 Apache 2.x.xx Win64 版，解压放到目录里，命名为 apache
 2. 编辑 apahce\conf\httpd.conf
-2.1.1 ServerRoot "c:/Apache24" 前面加入 # 号
+2.1.1 Define SRVROOT "c:/Apache24" 改为当前目录，如 D:/AndyPHP/apache
 2.1.2 Listen 80 前面加入 # 号
-2.2.5 修改 DocumentRoot "c:/Apache24/htdocs" 前面加入 # 号
+2.2.5 修改 DocumentRoot "${SRVROOT}/htdocs" 前面加入 # 号
 
 2.3. 删除
 <Directory />
@@ -23,10 +24,11 @@ LoadModule rewrite_module modules/mod_rewrite.so
 LoadModule proxy_module modules/mod_proxy.so
 LoadModule proxy_http_module modules/mod_proxy_http.so
 LoadModule headers_module modules/mod_headers.so
+LoadModule access_compat_module modules/mod_access_compat.so
 HttpProtocolOptions unsafe
 ServerName localhost:80
 AddType application/x-httpd-php .php
-LoadModule php5_module ../php/php5apache2_4.dll
+LoadModule php_module ../php/php8apache2_4.dll
 PHPIniDir ../php
 Include conf/vhost/*.conf
 <IfModule mod_ratelimit.c>

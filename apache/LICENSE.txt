@@ -322,6 +322,40 @@ For the  server\util_md5.c component:
  * WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES.  
  */
 
+
+For the util_pcre.c and ap_regex.h components:
+
+           Copyright (c) 1997-2004 University of Cambridge
+
+-----------------------------------------------------------------------------
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+
+    * Neither the name of the University of Cambridge nor the names of its
+      contributors may be used to endorse or promote products derived from
+      this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+-----------------------------------------------------------------------------
+
+
 For the  srclib\apr\include\apr_md5.h component: 
 /*
  * This is work is derived from material Copyright RSA Data Security, Inc.
@@ -331,7 +365,7 @@ For the  srclib\apr\include\apr_md5.h component:
  * licence for the modifications made to that material.
  */
 
-/* Copyright (C) 1991-2, RSA Data Security, Inc. Created 1991. All
+/* Copyright (C) 1991-2020, RSA Data Security, Inc. Created 1991. All
    rights reserved.
 
    License to copy and use this software is granted provided that it
@@ -366,7 +400,7 @@ For the  srclib\apr\passwd\apr_md5.c component:
 /* MD5C.C - RSA Data Security, Inc., MD5 message-digest algorithm
  */
 
-/* Copyright (C) 1991-2, RSA Data Security, Inc. Created 1991. All
+/* Copyright (C) 1991-2020, RSA Data Security, Inc. Created 1991. All
    rights reserved.
 
    License to copy and use this software is granted provided that it
@@ -403,7 +437,7 @@ For the srclib\apr-util\crypto\apr_md4.c component:
  * This is derived from material copyright RSA Data Security, Inc.
  * Their notice is reproduced below in its entirety.
  *
- * Copyright (C) 1991-2, RSA Data Security, Inc. Created 1991. All
+ * Copyright (C) 1991-2020, RSA Data Security, Inc. Created 1991. All
  * rights reserved.
  *
  * License to copy and use this software is granted provided that it
@@ -431,7 +465,7 @@ For the srclib\apr-util\include\apr_md4.h component:
  * This is derived from material copyright RSA Data Security, Inc.
  * Their notice is reproduced below in its entirety.
  *
- * Copyright (C) 1991-2, RSA Data Security, Inc. Created 1991. All
+ * Copyright (C) 1991-2020, RSA Data Security, Inc. Created 1991. All
  * rights reserved.
  *
  * License to copy and use this software is granted provided that it
@@ -460,7 +494,7 @@ For the srclib\apr-util\test\testmd4.c component:
  * This is derived from material copyright RSA Data Security, Inc.
  * Their notice is reproduced below in its entirety.
  *
- * Copyright (C) 1990-2, RSA Data Security, Inc. Created 1990. All
+ * Copyright (C) 1990-2020, RSA Data Security, Inc. Created 1990. All
  * rights reserved.
  *
  * RSA Data Security, Inc. makes no representations concerning either
@@ -531,7 +565,7 @@ Email domain:     cam.ac.uk
 University of Cambridge Computing Service,
 Cambridge, England.
 
-Copyright (c) 1997-2017 University of Cambridge
+Copyright (c) 1997-2019 University of Cambridge
 All rights reserved.
 
 
@@ -542,7 +576,7 @@ Written by:       Zoltan Herczeg
 Email local part: hzmester
 Emain domain:     freemail.hu
 
-Copyright(c) 2010-2017 Zoltan Herczeg
+Copyright(c) 2010-2019 Zoltan Herczeg
 All rights reserved.
 
 
@@ -553,7 +587,7 @@ Written by:       Zoltan Herczeg
 Email local part: hzmester
 Emain domain:     freemail.hu
 
-Copyright(c) 2009-2017 Zoltan Herczeg
+Copyright(c) 2009-2019 Zoltan Herczeg
 All rights reserved.
 
 
@@ -606,13 +640,15 @@ For the libeay32.dll, ssleay32.dll and openssl.exe components:
 
   The OpenSSL toolkit stays under a double license, i.e. both the conditions of
   the OpenSSL License and the original SSLeay license apply to the toolkit.
-  See below for the actual license texts.
+  See below for the actual license texts. Actually both licenses are BSD-style
+  Open Source licenses. In case of any license issues related to OpenSSL
+  please contact openssl-core@openssl.org.
 
   OpenSSL License
   ---------------
 
 /* ====================================================================
- * Copyright (c) 1998-2017 The OpenSSL Project.  All rights reserved.
+ * Copyright (c) 1998-2019 The OpenSSL Project.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -728,7 +764,7 @@ For the libeay32.dll, ssleay32.dll and openssl.exe components:
 
 For the mod_deflate zlib compression component:
 
- (C) 1995-2017 Jean-loup Gailly and Mark Adler
+ (C) 1995-2019 Jean-loup Gailly and Mark Adler
 
   This software is provided 'as-is', without any express or implied
   warranty.  In no event will the authors be held liable for any damages
@@ -750,7 +786,43 @@ For the mod_deflate zlib compression component:
   jloup@gzip.org          madler@alumni.caltech.edu
 
 
-For the mod_proxy_html and mod_xml2enc components:
+For the mod_lua language component:
+
+Lua License
+-----------
+
+Lua is licensed under the terms of the MIT license reproduced below.
+This means that Lua is free software and can be used for both academic
+and commercial purposes at absolutely no cost.
+
+For details and rationale, see http://www.lua.org/license.html .
+
+===============================================================================
+
+Copyright (C) 1994-2012 Lua.org, PUC-Rio.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+===============================================================================
+
+
+For the mod_proxy_html and mod_xml2enc libxml2 C library components:
 
 Except where otherwise noted in the source code (e.g. the files hash.c,
 list.c and the trio files, which are covered by a similar licence but
@@ -776,12 +848,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-For the mod_http2 component:
+For the mod_http2 nghttp2 C library component:
 
 The MIT License
 
-Copyright (c) 2012, 2014, 2015, 2016 Tatsuhiro Tsujikawa
-Copyright (c) 2012, 2014, 2015, 2016 nghttp2 contributors
+Copyright (c) 2012-2019 Tatsuhiro Tsujikawa
+Copyright (c) 2012-2019 nghttp2 contributors
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -802,9 +874,9 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-For the mod_brotli component:
+For the mod_brotli Brotli C library component:
 
-Copyright (c) 2009, 2010, 2013-2016 by the Brotli Authors.
+Copyright (c) 2009-2019 by the Brotli Authors.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -823,3 +895,52 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+For the mod_md  Curl C library component:
+
+COPYRIGHT AND PERMISSION NOTICE
+
+Copyright (c) 1996 - 2019, Daniel Stenberg, <daniel@haxx.se>, and many
+contributors.
+
+All rights reserved.
+
+Permission to use, copy, modify, and distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright
+notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN
+NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+OR OTHER DEALINGS IN THE SOFTWARE.
+
+Except as contained in this notice, the name of a copyright holder shall not
+be used in advertising or otherwise to promote the sale, use or other dealings
+in this Software without prior written authorization of the copyright holder.
+
+For the mod_md Jansson C library component:
+
+Copyright (c) 2009-2019 Petri Lehtinen <petri@digip.org>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
