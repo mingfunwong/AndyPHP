@@ -79,11 +79,14 @@ MySQL：
 到 https://dev.mysql.com/downloads/mysql/ 下载
 新建文件 my.ini
 运行命令
+cd mysql\bin
 mysqld --initialize --console
 mysqld
 (打开新命令行窗口)
 mysql -u root –p
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
+
+删除文件 mysql\bin\mysqld.pdb, mysql\bin\libprotobuf-debug.pdb
 
 FileZilla Server：
 1. 到 https://filezilla-project.org/download.php?type=server 下载安装到目录，命名为 ftp
@@ -92,6 +95,6 @@ Adminer：
 1. 到 https://www.adminer.org/#download 下载 Adminer 4.x.x 版，放到 web\default 目录里
 
 Caddy：
-1. 到 https://caddyserver.com/download 下载，勾选 hook.service 插件
+1. 到 https://caddyserver.com/download 下载
 
 ```

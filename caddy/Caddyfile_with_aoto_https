@@ -1,12 +1,7 @@
 * {
-    tls {
-        max_certs 10000
-        protocols tls1.0 tls1.2
-    }
-    gzip
-    proxy / http://127.0.0.1:801 {
-        transparent
-    }
+    tls internal
+    encode zstd gzip
+    reverse_proxy / http://127.0.0.1:801 
     header / {
     	Strict-Transport-Security "max-age=31536000;"
         -Server

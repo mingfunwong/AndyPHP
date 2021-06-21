@@ -39,11 +39,9 @@ goto :eof
 goto :eof
 
 :start_caddy
-caddy\caddy -service install -conf="%cd%\caddy\Caddyfile"
-caddy\caddy -service start
+caddy\caddy start --config %cd%\caddy\Caddyfile
 goto :eof
 
 :stop_caddy
-caddy\caddy -service stop
-caddy\caddy -service uninstall
+caddy\caddy stop
 goto :eof

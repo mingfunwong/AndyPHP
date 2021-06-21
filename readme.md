@@ -16,7 +16,7 @@ FileZilla Server 0.9.60.2
 
 Adminer 4.8.1
 
-Caddy v1.0.3_windows_amd64_custom_personal with hook.service plugin
+Caddy v2.4.3
 
 ## 下载
 
