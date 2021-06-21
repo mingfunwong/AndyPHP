@@ -1,33 +1,34 @@
 #!/usr/bin/perl
 
-# Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2000, 2021, Oracle and/or its affiliates.
 #
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU Library General Public
-# License as published by the Free Software Foundation; version 2
-# of the License.
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License, version 2.0,
+# as published by the Free Software Foundation.
+#
+# This program is also distributed with certain software (including
+# but not limited to OpenSSL) that is licensed under separate terms,
+# as designated in a particular file or component or in included license
+# documentation.  The authors of MySQL hereby grant you an additional
+# permission to link the program and your derivative works with the
+# separately licensed software that they have included with MySQL.
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-# Library General Public License for more details.
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License, version 2.0, for more details.
 #
-# You should have received a copy of the GNU Library General Public
-# License along with this library; if not, write to the Free
-# Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
-# MA 02110-1301, USA
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301  USA
 
 # mysqldumpslow - parse and summarize the MySQL slow query log
-
-# Original version by Tim Bunce, sometime in 2000.
-# Further changes by Tim Bunce, 8th March 2001.
-# Handling of strings with \ and double '' by Monty 11 Aug 2001.
 
 use strict;
 use Getopt::Long;
 
-# t=time, l=lock time, r=rows, a=rows affected
-# at, al, ar and aa are the corresponding averages
+# t=time, l=lock time, r=rows
+# at, al, and ar are the corresponding averages
 
 my %opt = (
     s => 'at',
@@ -38,13 +39,13 @@ GetOptions(\%opt,
     'v|verbose+',# verbose
     'help+',	# write usage info
     'd|debug+',	# debug
-    's=s',	# what to sort by (al, at, ar, ae, c, t, l, r, e)
+    's=s',	# what to sort by (al, at, ar, c, t, l, r)
     'r!',	# reverse the sort order (largest last instead of first)
     't=i',	# just show the top n queries
     'a!',	# don't abstract all numbers to N and strings to 'S'
     'n=i',	# abstract numbers with at least n digits within names
     'g=s',	# grep: only consider stmts that include this string
-    'h=s',	# hostname/basename of db server for *-slow.log filename (can be wildcard)
+    'h=s',	# hostname of db server for *-slow.log filename (can be wildcard)
     'i=s',	# name of server instance (if using mysql.server startup script)
     'l!',	# don't subtract lock time from total time
 ) or usage("bad option");
@@ -52,42 +53,34 @@ GetOptions(\%opt,
 $opt{'help'} and usage();
 
 unless (@ARGV) {
-    my $defaults   = `my_print_defaults --mysqld`;
+    my $defaults   = `my_print_defaults mysqld`;
+    my $basedir = ($defaults =~ m/--basedir=(.*)/)[0]
+	or die "Can't determine basedir from 'my_print_defaults mysqld' output: $defaults";
+    warn "basedir=$basedir\n" if $opt{v};
 
-    my $datadir = ($defaults =~ m/--datadir=(.*)/g)[-1];
+    my $datadir = ($defaults =~ m/--datadir=(.*)/)[0];
+    my $slowlog = ($defaults =~ m/--slow-query-log-file=(.*)/)[0];
     if (!$datadir or $opt{i}) {
 	# determine the datadir from the instances section of /etc/my.cnf, if any
 	my $instances  = `my_print_defaults instances`;
-	die "Can't determine datadir from 'my_print_defaults instances' output: $defaults"
+	die "Can't determine datadir from 'my_print_defaults mysqld' output: $defaults"
 	    unless $instances;
 	my @instances = ($instances =~ m/^--(\w+)-/mg);
 	die "No -i 'instance_name' specified to select among known instances: @instances.\n"
 	    unless $opt{i};
 	die "Instance '$opt{i}' is unknown (known instances: @instances)\n"
 	    unless grep { $_ eq $opt{i} } @instances;
-	$datadir = ($instances =~ m/--$opt{i}-datadir=(.*)/g)[-1]
+	$datadir = ($instances =~ m/--$opt{i}-datadir=(.*)/)[0]
 	    or die "Can't determine --$opt{i}-datadir from 'my_print_defaults instances' output: $instances";
 	warn "datadir=$datadir\n" if $opt{v};
     }
 
-    my $slowlog = ($defaults =~ m/--log[-_]slow[-_]queries=(.*)/g)[-1];
-    if (!$slowlog)
-    {
-      $slowlog = ($defaults =~ m/--slow[-_]query[-_]log[-_]file=(.*)/g)[-1];
-    }
-    if ( $slowlog )
-    {
+    if ( -f $slowlog ) {
         @ARGV = ($slowlog);
         die "Can't find '$slowlog'\n" unless @ARGV;
-    }
-    else
-    {
-      if (!$opt{h})
-      {
-        $opt{h}= ($defaults =~ m/--log[-_]basename=(.*)/g)[-1];
-      }
-      @ARGV = <$datadir/$opt{h}-slow.log>;
-      die "Can't find '$datadir/$opt{h}-slow.log'\n" unless @ARGV;
+    } else {
+        @ARGV = <$datadir/$opt{h}-slow.log>;
+        die "Can't find '$datadir/$opt{h}-slow.log'\n" unless @ARGV;
     }
 }
 
@@ -106,26 +99,17 @@ while ( defined($_ = shift @pending) or defined($_ = <>) ) {
 	next;
     }
 
-    s/^#? Time: \d{6}\s+\d+:\d+:\d+.*\n//;
-    my ($user,$host) = s/^#? User\@Host:\s+(\S+)\s+\@\s+(\S+).*\n// ? ($1,$2) : ('','');
+    s/^#? Time: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d+(Z|[+-]\d{2}:\d{2}).*\n//;
+    my ($user,$host,$dummy,$thread_id) = s/^#? User\@Host:\s+(\S+)\s+\@\s+(\S+)\s+\S+(\s+Id:\s+(\d+))?.*\n// ? ($1,$2,$3,$4) : ('','','','','');
 
-    s/^# Thread_id: [0-9]+\s+Schema: .*\s+QC_hit:.*[^\n]+\n//;
-    s/^# Query_time: ([0-9.]+)\s+Lock_time: ([0-9.]+)\s+Rows_sent: ([0-9.]+)\s+Rows_examined: ([0-9.]+).*\n//;
-    my ($t, $l, $r, $e) = ($1, $2, $3, $4);
-    s/^# Rows_affected: ([0-9.]+).*\n//;
-    my ($a) = ($1);
-
+    s/^# Query_time: ([0-9.]+)\s+Lock_time: ([0-9.]+)\s+Rows_sent: ([0-9.]+).*\n//;
+    my ($t, $l, $r) = ($1, $2, $3);
     $t -= $l unless $opt{l};
 
     # remove fluff that mysqld writes to log when it (re)starts:
     s!^/.*Version.*started with:.*\n!!mg;
     s!^Tcp port: \d+  Unix socket: \S+\n!!mg;
     s!^Time.*Id.*Command.*Argument.*\n!!mg;
-
-    # Remove optimizer info
-    s!^# QC_Hit: \S+\s+Full_scan: \S+\s+Full_join: \S+\s+Tmp_table: \S+\s+Tmp_table_on_disk: \S+[^\n]+\n!!mg;
-    s!^# Filesort: \S+\s+Filesort_on_disk: \S+[^\n]+\n!!mg;
-    s!^# Full_scan: \S+\s+Full_join: \S+[^\n]+\n!!mg;
 
     s/^use \w+;\n//;	# not consistently added
     s/^SET timestamp=\d+;\n//;
@@ -156,8 +140,6 @@ while ( defined($_ = shift @pending) or defined($_ = <>) ) {
     $s->{t} += $t;
     $s->{l} += $l;
     $s->{r} += $r;
-    $s->{e} += $e;
-    $s->{a} += $a;
     $s->{users}->{$user}++ if $user;
     $s->{hosts}->{$host}++ if $host;
 
@@ -166,12 +148,10 @@ while ( defined($_ = shift @pending) or defined($_ = <>) ) {
 
 foreach (keys %stmt) {
     my $v = $stmt{$_} || die;
-    my ($c, $t, $l, $r, $e, $a) = @{ $v }{qw(c t l r e a)};
+    my ($c, $t, $l, $r) = @{ $v }{qw(c t l r)};
     $v->{at} = $t / $c;
     $v->{al} = $l / $c;
     $v->{ar} = $r / $c;
-    $v->{ae} = $e / $c;
-    $v->{aa} = $a / $c;
 }
 
 my @sorted = sort { $stmt{$b}->{$opt{s}} <=> $stmt{$a}->{$opt{s}} } keys %stmt;
@@ -180,13 +160,13 @@ my @sorted = sort { $stmt{$b}->{$opt{s}} <=> $stmt{$a}->{$opt{s}} } keys %stmt;
 
 foreach (@sorted) {
     my $v = $stmt{$_} || die;
-    my ($c, $t, $at, $l, $al, $r, $ar, $e, $ae, $a, $aa) = @{ $v }{qw(c t at l al r ar e ae a aa)};
+    my ($c, $t,$at, $l,$al, $r,$ar) = @{ $v }{qw(c t at l al r ar)};
     my @users = keys %{$v->{users}};
     my $user  = (@users==1) ? $users[0] : sprintf "%dusers",scalar @users;
     my @hosts = keys %{$v->{hosts}};
     my $host  = (@hosts==1) ? $hosts[0] : sprintf "%dhosts",scalar @hosts;
-    printf "Count: %d  Time=%.2fs (%ds)  Lock=%.2fs (%ds)  Rows_sent=%.1f (%d), Rows_examined=%.1f (%d), Rows_affected=%.1f (%d), $user\@$host\n%s\n\n",
-	    $c, $at,$t, $al,$l, $ar,$r, $ae, $e, $aa, $a, $_;
+    printf "Count: %d  Time=%.2fs (%ds)  Lock=%.2fs (%ds)  Rows=%.1f (%d), $user\@$host\n%s\n\n",
+	    $c, $at,$t, $al,$l, $ar,$r, $_;
 }
 
 sub usage {
@@ -202,11 +182,10 @@ Parse and summarize the MySQL slow query log. Options are
 
   -v           verbose
   -d           debug
-  -s ORDER     what to sort by (al, at, ar, ae, c, l, r, e, t), 'at' is default
+  -s ORDER     what to sort by (al, at, ar, c, l, r, t), 'at' is default
                 al: average lock time
                 ar: average rows sent
                 at: average query time
-                aa: average rows affected
                  c: count
                  l: lock time
                  r: rows sent

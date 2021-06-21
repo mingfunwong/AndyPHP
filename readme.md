@@ -10,7 +10,7 @@ Apache 2.4.48 Win64
 
 PHP 8.0 (8.0.7) VS16 x64 Thread Safe
 
-MariaDB 10.2 Series
+MySQL 8.0.25
 
 FileZilla Server 0.9.60
 
@@ -24,7 +24,7 @@ https://github.com/mingfunwong/AndyPHP/archive/master.zip
 
 ## 提示
 
-- MySQL 账号： root 密码：空 ，建议访问 http://127.0.0.1/reset_mysql.php 重设密码。
+- MySQL 账号： root 密码：root ，建议访问 http://127.0.0.1/reset_mysql.php 重设密码。
 
 ## 使用方法
 
