@@ -12,7 +12,7 @@ PHP 8.0 (8.0.7) VS16 x64 Thread Safe
 
 MySQL 8.0.25
 
-FileZilla Server 0.9.60
+FileZilla Server 0.9.60.2
 
 Adminer 4.8.1
 
