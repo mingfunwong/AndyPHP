@@ -1,7 +1,7 @@
 * {
     tls internal
     encode zstd gzip
-    reverse_proxy / http://127.0.0.1:801 
+    reverse_proxy http://127.0.0.1:801 
     header / {
     	Strict-Transport-Security "max-age=31536000;"
         -Server
