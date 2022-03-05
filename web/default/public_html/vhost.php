@@ -56,7 +56,7 @@ ajax();
       <div class="form-group">
         <label>
           绑定域名
-          <input type="text" class="form-control" value="example.lvh.me" name="vhost_alias" style="width: 410px">
+          <input type="text" class="form-control" value="example.127.0.0.1.nip.io" name="vhost_alias" style="width: 410px">
         </label>
       </div>
       <div class="form-group">
