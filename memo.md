@@ -52,11 +52,9 @@ PHP：
 extension=php_bz2.dll
 extension=php_curl.dll
 extension=php_fileinfo.dll
-extension=php_gd2.dll
 extension=php_gettext.dll
 extension=php_mbstring.dll
 extension=php_exif.dll
-extension=php_mysql.dll
 extension=php_mysqli.dll
 extension=php_openssl.dll
 extension=php_pdo_mysql.dll
