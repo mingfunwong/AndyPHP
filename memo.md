@@ -87,6 +87,11 @@ date.timezone = Asia/Shanghai
 upload_tmp_dir = "../temp"
 post_max_size = 2000M
 upload_max_filesize = 2000M
+; https://curl.se/docs/caextract.html
+[curl]
+curl.cainfo="C:\AndyPHP\php\cacert.pem"
+[openssl]
+openssl.cafile="C:\AndyPHP\php\cacert.pem"
 
 4. libssh2.dll 复制到 Apache24\bin 目录。
 
