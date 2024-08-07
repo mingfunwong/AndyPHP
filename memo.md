@@ -49,20 +49,42 @@ PHP：
 1. 到 http://windows.php.net/download/ 下载 VC11 x64 Thread Safe 版，解压放到目录里，命名为 php
 2. php.ini-development 复制到 php.ini
 3. 修改文件 php.ini，把下面配置粘贴到最后
-extension=php_bz2.dll
-extension=php_curl.dll
-extension=php_fileinfo.dll
-extension=php_gettext.dll
-extension=php_mbstring.dll
-extension=php_exif.dll
-extension=php_mysqli.dll
-extension=php_openssl.dll
-extension=php_pdo_mysql.dll
-extension=php_pdo_sqlite.dll
+extension=bz2
+extension=ldap
+extension=curl
+extension=ffi
+extension=ftp
+extension=fileinfo
+extension=gd
+extension=gettext
+extension=gmp
+extension=intl
+extension=imap
+extension=mbstring
+extension=exif
+extension=mysqli
+extension=oci8_12c
+extension=odbc
+extension=openssl
+extension=pdo_firebird
+extension=pdo_mysql
+extension=pdo_oci
+extension=pdo_odbc
+extension=pdo_pgsql
+extension=pdo_sqlite
+extension=pgsql
+extension=shmop
+extension=snmp
+extension=soap
+extension=sockets
+extension=sodium
+extension=sqlite3
+extension=tidy
+extension=xsl
+zend_extension=opcache
 extension_dir = "../php/ext"
 date.timezone = Asia/Shanghai
 upload_tmp_dir = "../temp"
-always_populate_raw_post_data = -1
 post_max_size = 2000M
 upload_max_filesize = 2000M
 
